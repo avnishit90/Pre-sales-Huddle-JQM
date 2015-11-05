@@ -1,0 +1,124 @@
+var y=0;
+var pinned=[];
+
+function remember(){
+    var email1=document.login.email;
+    var password=document.login.pwd;
+
+}
+
+
+function validate()
+    {
+        var email1=document.login.email;
+        var mailformat = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var users = ["avnish.kumar@synerzip.com","kunjan.thakkar@synerzip.com"];
+        var password=document.login.pwd;
+        var domain="@synerzip.com";
+        var email= document.login.email.value;
+        var str= email.indexOf(domain);
+        var uid_len = password.value.length;
+        var user_type=document.getElementsByName("usertype");
+        var len=user_type.length;
+        var x=0;
+        localStorage[pinned]=new Array();
+        if(user_type[0].checked)
+            x=1;
+        if(email1.value.match(mailformat))
+        {
+            if (uid_len != 0 && str > 0)
+            {
+                if(x==0)
+                {
+                    var lcl=localStorage.getItem("pin1");
+                     alert(lcl);
+                    var data123=JSON.parse(lcl);
+                    alert(data123);
+                    var length_local=data123.length;
+                    alert(length_local);
+                     alert(data123[0]);
+                    var idd=JSON.parse(data123[0]);
+                    alert(idd);
+
+                    var t = null;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function(responseText) {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { // Block starts here
+                            var obj = JSON.parse(xmlhttp.responseText);
+                            var str = JSON.stringify(obj);
+                            var newArr = JSON.parse(str);
+                            var len = newArr.length;
+                            $.mobile.pageContainer.pagecontainer("change", "sales_home.html");
+                            $(document).on('pageshow', "#temp", function(event, data) {
+                                /*while (len > 0) {
+                                    $('#list').append('<li onclick="test11()">'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Name+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].TechStack+'</p>'+'</a>'+'</li>');
+                                    len--;
+                                    newArr[len-1].pinn="false";
+
+                                   // var data=JSON.parse(newArr[len-1]);
+                                   // data.concat(pinn1);
+                                    //alert(data);
+                                                          *//*alert(newArr[len-1]);*//*
+                                    pinned[y]=JSON.stringify(newArr[len-1]);
+                                   *//* pinned[y].pinn=JSON.stringify('false');*//*
+                                    y++;
+                                   *//*alert(pinned);*//*
+
+                                }*/
+                                while (len > 0) {
+                                    $('#list').append('<li onclick="test11()">'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Name+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].TechStack+'</p>'+'</a>'+'</li>');
+                                    var data11 = {'ProspectID':newArr[len-1].ProspectID,'pinn':'false'};
+                                    len--;
+                                    pinned[y]=JSON.stringify(data11);
+                                    y++;
+
+                                }
+                                localStorage.setItem("pin1",JSON.stringify(pinned));
+                            });
+                        }                                                       // Block ends here
+                    }
+                    xmlhttp.onerror = function(E) {
+                        alert("error" + E);
+                    }
+
+                    xmlhttp.open("GET","https://172.24.212.39:8080/prospect/view/",true);
+                    xmlhttp.send();
+                }
+                else
+                {
+
+                    var t = null;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function(responseText) {
+                        if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { // Block starts here
+                            var obj = JSON.parse(xmlhttp.responseText);
+                            var str = JSON.stringify(obj);
+                            var newArr = JSON.parse(str);
+                            var len = newArr.length;
+                            $.mobile.pageContainer.pagecontainer("change", "tech_home.html");
+                            $(document).on('pageshow', "#temp", function(event, data) {
+                                while (len > 0) {
+                                    $('#list').append('<li onclick="test11()">'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Name+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].TechStack+'</p>'+'</a>'+'</li>');
+                                    len--;
+                                }
+                            });
+                        }                                                       // Block ends here
+                    }
+                    xmlhttp.onerror = function(E) {
+                        alert("error" + E);
+                    }
+
+                    xmlhttp.open("GET","https://172.24.212.39:8080/prospect/view/",true);
+                    xmlhttp.send();
+                }
+            }
+            else{
+                alert('password or Email-id mismatch');
+            }
+        }
+        else{
+            alert("invalid Email-id");
+        }
+
+    }
+

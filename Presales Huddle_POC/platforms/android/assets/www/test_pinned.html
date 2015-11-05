@@ -1,0 +1,69 @@
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+
+    <script type="text/javascript" src="js/add_prospects.js"></script>
+    <script type="text/javascript" src="js/testpinned.js"></script>
+    <!--<script type="text/javascript" src="cordova.js"></script>-->
+
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <!--<script src="cordova.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+    <script type="text/javascript" src="js/checkdate.js"></script>
+    <style>
+       /* $('#textBoxName').change( function() {
+        if ($(this).val() > new Date()) {
+        alert("You cannot select a day future than today!");
+            var today=new Date();
+            $('#textBoxName').val(today);
+            }
+            });*/
+       /* $('#adate').change(function(){});*/
+        /*document.getElementById('datePicker').value = new Date().toDateInputValue();*/
+
+
+    </style>
+    <title>Add Prospects</title>
+</head>
+<body >
+<div class="wrapperhome" data-role="page" >
+    <div></div>
+    <div class="top">
+        Prospect
+        <a href="#" onclick="newabc1()" id="top2" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save"  style="float:right; margin-top: .5%;">Check</a>
+    </div>
+    <div class="form">
+        <form name="addProspect12">
+            <label for="aname">Name:</label>
+            <input type="text" name="pname" id="aname" value="" placeholder="Enter Name of Prospect" />
+            <label for="adate">Date:</label>
+            <input onblur="myfunction()" type="date" id="adate" name="date"/>
+            <label for="atech">TechStack:</label>
+            <input type="text" name="TechStack" id="atech"  value="" placeholder="Technology Required" />
+            <label for="acontacts">List of Contacts:</label>
+            <input type="text" name="Contacts" id="acontacts" value="" placeholder="List of Contacts" />
+            <label for="adomain">Domain:</label>
+            <input type="text" name="Domain" id="adomain" value="" placeholder="Domain" />
+            <label for="asize">Team Size:</label>
+            <input type="text" name="Size" id="asize" value="" placeholder="Team Size" />
+            <label for="acomposition">Team Composition:</label>
+            <input type="text" name="Composition" id="acomposition" value="" placeholder="Team Composition" />
+            <label for="astatus">Status:</label>
+            <input type="text" name="Status" id="astatus" value="" placeholder="Status" />
+            <label for="textarea-a">Notes:</label>
+            <textarea  id="textarea-a" name="notes"  PLACEHOLDER="Notes if any..."></textarea>
+            <div class="containing-element">
+                <label for="pin">PIN switch:</label>
+                <select name="flip-min" id="pin" data-role="slider">
+                    <option value="off">Unpinned</option>
+                    <option value="on">pinned</option>
+                </select>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,107 @@
+.wrapper {
+    height:100%;
+    width:100%;
+    float: right;
+    text-align:center;
+    margin-top: 10%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size:120%;
+    }
+body{
+    background-color: greenyellow!important;
+}
+#r1{
+     font-size: 100%;
+    float:none;
+    margin-left: 25%;
+    display: block;
+    width: 100%;
+  padding-right: -50%;
+}
+.data{
+    float: right!important;
+    margin-left: 22%!important;
+    font-size: 90%!important;
+
+}
+.login1{
+    width: 40% !important;
+    margin-left: 22% !important;
+    text-align: right;
+
+}
+
+
+.header{
+
+    margin-left: 1% !important;
+}
+
+label {
+    display: block;
+    width: 90%;
+}
+.checkbox-0 .ui-checkbox{
+    width: 40% !important;
+    margin-left: 30% !important;
+    text-align: right;
+
+}
+
+.ui-overlay-a .ui-page-theme-a .ui-page-theme-a .ui-panel-wrapper {
+     background-color:YELLOW !important;
+    /* border-color: #bbb; */
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+
+.ui-btn {
+    font-size: 16px;
+    margin:1% !important;
+    padding: .7em 1em;
+    display: block;
+    position: relative;
+    text-align: center;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.ui-overlay-a .ui-page-theme-a .ui-page-theme-a .ui-panel-wrapper {
+     background-color: greenyellow !important;
+    /* border-color: #bbb; */
+   /* color: #333;*/
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+.ui-btn ui-input-btn ui-corner-all ui-shadow{
+    background-color: greenyellow !important;
+}
+
+.ui-overlay-a, .ui-page-theme-a, .ui-page-theme-a .ui-panel-wrapper {
+     background-color:greenyellow !important;
+    border-color: #bbb;
+    color: #333;
+    text-shadow: 0 1px 0 #f3f3f3;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

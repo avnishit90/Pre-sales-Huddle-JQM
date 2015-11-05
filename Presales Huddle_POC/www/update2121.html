@@ -1,0 +1,120 @@
+<html>
+<head>
+
+
+
+
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>jQuery Mobile: Theme Download</title>
+    <link rel="stylesheet" href="themes/new1.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="js/add_prospects.js"></script>
+    <script type="text/javascript" src="js/tech_home.js"></script>
+    <script type="text/javascript" src="js/test1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <script type="text/javascript" src="js/checkdate.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+
+    <script>
+
+        $(function(){
+
+            var today=new Date();
+            var dd = today.getDate();
+            var mm = today.getMonth()+1; //January is 0!
+
+            var yyyy = today.getFullYear();
+
+            var today = yyyy+'-'+mm+'-'+dd;
+
+            var today1=today.toString();
+            /*document.getElementById("adate").max = "2015-10-29";*/
+            document.getElementById("adate").max = today1;
+
+
+        });
+
+
+    </script>
+</head>
+<body>
+
+<div data-role="page" data-theme="a">
+
+    <div data-role="panel" id="myPanel">
+
+
+        <div id="specialCont">
+            <!--<div>
+                <label for="pub_url">Text Input</label>
+                <input data-role="none" type="text" id="pub_url" name="pub_url" value="http://cssdeck.com" />
+            </div>-->
+            <!--<label class="ui-btn ui-corner-all ui-btn-inherit" style="text-align: left;background-color:#E0D1D1;font-weight:bold;text-wrap:normal !important;white-space:pre-wrap;">QUESTION:-This paragraph contains some text.This line should not break or wrap to the next line.<br><br>ANSWER:-This paragraph contains some text.This line should not break or wrap to the next line.</label>-->
+
+
+
+            <!--<label class="ui-btn ui-corner-all ui-btn-inherit" style="text-align: left;background-color: #E0D1D1;border-color:#000000;overflow:hidden;"/>question:-gvbjhbvdkjhmbkgfjcxbvkfbgkjfdbkjbkjfdbkjvbkjfdnbjkhcvb???<br><br>answer</label>
+            <label class="question">question:--gvbjhbvdkjhmbkgfjcxbvkfbgkjfdbkjbkjfdbkjvbkjfdnbjkhcvb???<br><br>answer</label>-->
+            <!--<input type="text" name="textinput-4" id="textinput-4" placeholder="ajkkhlknlkdnghfdh" value="">-->
+            <!--<label class="ui-btn ui-corner-all ui-btn-inherit">QUEST</label>-->
+        </div>
+
+
+
+    </div>
+
+
+    <div data-role="header" data-position="inline">
+        <a href="#myPanel"  class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save" >Check</a>
+        <h1>Prospect Details</h1>
+        <a href="#" onclick="update1();" id="top1" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save"  >Check</a>
+    </div>
+    <div data-role="content" data-theme="a">
+        <form name="addProspect">
+            <label for="aname">Name:</label>
+            <input type="text" name="pname" id="aname" value="" placeholder="Enter Name of Prospect" />
+            <label for="adate">Date:</label>
+            <input type="date" id="adate" name="date"/>
+            <label for="atech">TechStack:</label>
+            <input type="text" name="TechStack" id="atech"  value="" placeholder="Technology Required" />
+            <label for="acontacts">List of Contacts:</label>
+            <input type="text" name="Contacts" id="acontacts" value="" placeholder="List of Contacts" />
+            <label for="adomain">Domain:</label>
+            <input type="text" name="Domain" id="adomain" value="" placeholder="Domain" />
+            <label for="asize">Team Size:</label>
+            <input type="text" name="Size" id="asize" value="" placeholder="Team Size" />
+            <label for="acomposition">Team Composition:</label>
+            <input type="text" name="Composition" id="acomposition" value="" placeholder="Team Composition" />
+            <label for="astatus">Status:</label>
+            <input type="text" name="Status" id="astatus" value="" placeholder="Status" />
+            <label for="textarea-a">Notes:</label>
+            <textarea  id="textarea-a" name="notes"  PLACEHOLDER="Notes if any..."></textarea>
+        </form>
+        <label for="flip-min">PIN switch:</label>
+        <select name="flip-min" id="flip-min" data-role="slider">
+            <option value="off">Unpinned</option>
+            <option value="on">pinned</option>
+        </select>
+        <!--	<p>Your theme was successfully downloaded. You can use this page as a reference for how to link it up!</p>
+
+            <p>This is content color swatch "A" and a preview of a <a href="#" class="ui-link">link</a>.</p>
+            <label for="slider1">Input slider:</label>
+            <input type="range" name="slider1" id="slider1" value="50" min="0" max="100" data-theme="a" />
+            <fieldset data-role="controlgroup"  data-type="horizontal" data-role="fieldcontain">
+            <legend>Cache settings:</legend>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-a1" value="on" checked="checked" />
+            <label for="radio-choice-a1">On</label>
+            <input type="radio" name="radio-choice-a1" id="radio-choice-b1" value="off"  />
+            <label for="radio-choice-b1">Off</label>
+            </fieldset>-->
+    </div>
+</div>
+</body>
+</html>

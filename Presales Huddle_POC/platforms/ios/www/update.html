@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/add_prospects.css">
+    <script type="text/javascript" src="js/add_prospects.js"></script>
+    <script type="text/javascript" src="js/tech_home.js"></script>
+    <script type="text/javascript" src="js/test1.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+   <!-- <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />-->
+  <!--  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+  <!--  <script>
+
+
+        $(document).on("pagebeforecreate",function(){
+            alert("pagebeforecreate event fired - the page is about to be initialized. jQuery Mobile has not begun enhancing the page");
+        });
+        $(document).on("pagecreate",function(){
+            alert("pagecreate event fired - the page has been created, but enhancement is not complete");
+        });
+
+        window.onload = function(){
+        alert("window");
+        }
+
+
+
+
+
+
+
+
+
+        $(document).ready(function() {
+            alert("jd");
+                /* $('#ques').append('<li>'+'<a'+' '+'href="#" class="ui-btn ui-btn-icon-right ui-icon-carat-r">uuuu<br>'+'<p'+' '+'class="aaaa">ff</p>'+'</a>'+'</li>');*/
+
+            var t = null;
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function(responseText) {
+                if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { // Block starts here
+                    var obj = JSON.parse(xmlhttp.responseText);
+                    var str = JSON.stringify(obj);
+                    var newArr = JSON.parse(str);
+                    var len = newArr.length;
+                         alert(len);
+                        while (len > 0) {
+                            $('#ques').append('<li>'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Query+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].Query+'</p>'+'</a>'+'</li>');
+                            len--;
+                        }
+
+                }                                                       // Block ends here
+            }
+            xmlhttp.onerror = function(E) {
+                alert("error" + E);
+            }
+
+            xmlhttp.open("GET","https://172.24.212.39:8080/discussions/view/",true);
+            xmlhttp.send();
+
+
+        });
+    </script>-->
+<title>update</title>
+</head>
+<body >
+
+<div class="wrapperhome" data-role="page" id="temp1" >
+    <div data-role="panel" id="myPanel">
+
+
+        <div id="specialCont">
+            <!--<div>
+                <label for="pub_url">Text Input</label>
+                <input data-role="none" type="text" id="pub_url" name="pub_url" value="http://cssdeck.com" />
+            </div>-->
+
+            <!--<label class="ui-btn ui-corner-all ui-btn-inherit" style="text-align: left;background-color: #E0D1D1;border-color:#000000;overflow:hidden;">question:-gvbjhbvdkjhmbkgfjcxbvkfbgkjfdbkjbkjfdbkjvbkjfdnbjkhcvb???<br><br>answer</label>
+            <label class="question">question:--gvbjhbvdkjhmbkgfjcxbvkfbgkjfdbkjbkjfdbkjvbkjfdnbjkhcvb???<br><br>answer</label>-->
+            <!--<input type="text" name="textinput-4" id="textinput-4" placeholder="ajkkhlknlkdnghfdh" value="">-->
+           <!--<label class="ui-btn ui-corner-all ui-btn-inherit" />QUEST</lable>-->
+        </div>
+
+
+
+    </div>
+
+    <div></div>
+    <div class="top">
+       <!-- <a href="#myPanel"  class="ui-btn ui-shadow ui-corner-all ui-icon-comment ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save"  style="float:left; margin-top: .5%;">Check</a>-->
+        <a href="#myPanel"  class="ui-btn ui-shadow ui-corner-all ui-icon-bars ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save"  style="float:left; margin-top: .5%;">Check</a>
+       <!-- <a href="#myPanel" class="ui-btn ui-btn-inline ui-corner-all ui-shadow">Open Panel</a>-->
+
+        Prospect
+        <a href="#" onclick="update1();" id="top1" class="ui-btn ui-shadow ui-corner-all ui-icon-check ui-btn-icon-notext ui-btn-inline" data-role="button" data-icon="save"  style="float:right; margin-top: .5%;">Check</a>
+    </div>
+    <div class="form">
+        <form name="addProspect">
+            <label for="aname">Name:</label>
+            <input type="text" name="pname" id="aname" value="" placeholder="Enter Name of Prospect" />
+            <label for="adate">Date:</label>
+            <input type="date" id="adate" name="date"/>
+            <label for="atech">TechStack:</label>
+            <input type="text" name="TechStack" id="atech"  value="" placeholder="Technology Required" />
+            <label for="acontacts">List of Contacts:</label>
+            <input type="text" name="Contacts" id="acontacts" value="" placeholder="List of Contacts" />
+            <label for="adomain">Domain:</label>
+            <input type="text" name="Domain" id="adomain" value="" placeholder="Domain" />
+            <label for="asize">Team Size:</label>
+            <input type="text" name="Size" id="asize" value="" placeholder="Team Size" />
+            <label for="acomposition">Team Composition:</label>
+            <input type="text" name="Composition" id="acomposition" value="" placeholder="Team Composition" />
+            <label for="astatus">Status:</label>
+            <input type="text" name="Status" id="astatus" value="" placeholder="Status" />
+            <label for="textarea-a">Notes:</label>
+            <textarea  id="textarea-a" name="notes"  PLACEHOLDER="Notes if any..."></textarea>
+        </form>
+    </div>
+    <div class="containing-element">
+            <label for="flip-min">PIN switch:</label>
+            <select name="flip-min" id="flip-min" data-role="slider">
+                <option value="off">Unpinned</option>
+                <option value="on">pinned</option>
+            </select>
+        </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,187 @@
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/index.css">
+    <link rel="stylesheet" type="text/css" href="css/sales_home.css">
+    <!--<script type="text/javascript" src="js/test1.js"></script>-->
+    <!--<script type="text/javascript" src="js/index2.js"></script>-->
+    <!--<script type="text/javascript" src="js/add_prospects.js"></script>-->
+    <!--<script type="text/javascript" src="js/tech_home.js"></script>-->
+    <script type="text/javascript" src="cordova.js"></script>
+    <!--<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />-->
+    <!-- <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+     <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+
+    <script>
+
+        function remember(){
+            $.mobile.pageContainer.pagecontainer("change", "update.html");
+        }
+
+
+
+    </script>
+    <script>
+        document.addEventListener("backbutton",backKeyDown,true);
+        function backKeyDown(){
+            // Call my back key code here.
+            /*$.mobile.changePage("#homepage", "slideup");*/
+            /*alert("index backbutton");*/
+            var activePage = $.mobile.activePage.attr("id");
+            /* alert(activePage);*/
+
+            if(activePage=='add' ||activePage=='temp1'){
+                /* alert("addpage");*/
+                var t = null;
+                var xmlhttp = new XMLHttpRequest();
+                xmlhttp.onreadystatechange = function(responseText) {
+                    if (xmlhttp.readyState == 4 && xmlhttp.status == 200) { // Block starts here
+                        var obj = JSON.parse(xmlhttp.responseText);
+                        var str = JSON.stringify(obj);
+                        var newArr = JSON.parse(str);
+                        var len = newArr.length;
+                        $.mobile.pageContainer.pagecontainer("change", "sales_home.html");
+                        $(document).on('pageshow', "#temp", function(event, data) {
+                            while (len > 0) {
+                                $('#list').append('<li onclick="test11()">'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Name+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].TechStack+'</p>'+'</a>'+'</li>');
+                                len--;
+                            }
+                        });
+                    }                                                       // Block ends here
+                }
+                xmlhttp.onerror = function(E) {
+                    alert("error" + E);
+                }
+
+                xmlhttp.open("GET","https://172.24.212.39:8080/prospect/view/",true);
+                xmlhttp.send();
+            }
+
+
+            else if(activePage=='temp')
+            {                          /*alert("going index");*/
+                $.mobile.pageContainer.pagecontainer("change", "index.html");
+
+            }
+            else{
+                /*alert("exit");*/
+                navigator.app.exitApp();
+            }
+
+            event.preventDefault();
+        }
+
+    </script>
+
+
+
+    <script>
+
+
+        function mail(data) {
+            var readyForEmailTest = false;
+            document.addEventListener('deviceready', function () {
+                /*alert(cordova.plugins.email);
+                 alert(window.plugin.email);*/
+                readyForEmailTest = true;
+                if (readyForEmailTest == true) {
+                    if (window.plugin.email.isServiceAvailable() == true) {
+                        /*alert("gud");*/
+                        window.plugin.email.open();
+                    }
+                    else {
+                        /*alert("not gud");*/
+                        window.plugin.email.isServiceAvailable(
+                                function (isAvailable) {
+                                    /*alert(isAvailable ? 'Service is available' :'Service NOT available');
+                                     alert(isAvailable);*/
+                                    cordova.plugins.email.addAlias('gmail', 'com.google.android.gm');
+                                    cordova.plugins.email.open({
+                                        app:'gmail',
+                                        to: ['avnish.kumar@synerzip.com','kunjan.thakkar@synerzip.com'],
+                                        /* cc:      'erika@mustermann.de',
+                                         bcc:     ['john@doe.com', 'jane@doe.com'],*/
+                                        subject: 'New prospect Added',
+                                        /* body:    'New Prospect added please chech'*/
+                                        body:data
+                                    })
+
+                                }
+                        );
+                    }
+                }
+            }, false);
+
+
+        }
+    </script>
+    <script>
+
+        $(function() {
+
+            var lcl=localStorage.getItem("rem1");
+            /*alert(lcl);*/
+            var data123=JSON.parse(lcl);
+            /* alert(data123);*/
+
+            var idd=JSON.stringify(data123);
+            /* alert(idd);
+             //  var data13 ={'mail':"",'pass':"",'radio':""};*/
+            var idd1=JSON.parse(idd);
+            /* alert(idd1.mail);
+             alert(idd1.pass);*/
+            document.login.email.value=idd1.mail;
+            //document.getelementById("email_id").defaultValue =idd1.mail;
+            document.login.pwd.value=idd1.pass;
+
+        });
+
+
+
+    </script>
+
+    <title>LOGIN</title>
+</head>
+<body>
+<div class="wrapper" id="index">
+    <div class="header">
+        PRE SALES HUDDLE<br>
+    </div>
+    <div class="logo" data-role="icon">
+        <br> <img src="img/logo1.png">
+    </div>
+    <br>
+    <form name="login">
+        <!-- <div class="login1">
+               <label>  <input   type="radio"name="usertype" id="Technical" value="Technical Lead" checked>Technical Lead</label>
+                <label> <input   type="radio" name="usertype" id="Sales" value="Sales"> Sales</label>
+             <label>
+                 <input type="checkbox" name="checkbox-0 " id="check" value="1" checked>Remember me
+             </label>
+         </div-->
+
+        <input type="TEXT" class="txt" id="email_id" name="email" placeholder="Enter Email-ID" height="200px" width="1000px">
+        <input type="PASSWORD" id="pass" class="txt" name="pwd" placeholder="Password" height="200px" width="1000px">
+
+        <div class="login1">
+            <label>  <input   type="radio"name="usertype" id="Technical" value="Technical Lead" checked>Technical Lead</label>
+            <label> <input   type="radio" name="usertype" id="Sales" value="Sales"> Sales</label>
+            <label>
+                <input type="checkbox" name="checkbox-0 " id="check" value="1" checked>Remember me
+            </label>
+        </div>
+
+
+
+
+        <input type="button"  class="button" onclick='remember()'  value="Submit" style="width: 60%" >
+        <!--<input type="button"  class="button" onclick="pinning1()"  value="Submit" >-->
+
+    </form>
+</div>
+</body>
+</html>

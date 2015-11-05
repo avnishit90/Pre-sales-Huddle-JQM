@@ -1,0 +1,140 @@
+<html lang="en">
+<head>
+    <!--<meta charset="UTF-8">-->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/sales_home.css">
+    <script type="text/javascript" src="js/tech_home.js"></script>
+    <script type="text/javascript" src="js/add_prospects.js"></script>
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/test1.js"></script>
+    <script type="text/javascript" src="cordova.js"></script>
+   <!-- <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>-->
+    <script type="text/javascript" src="js/index.js"></script>
+    <script type="text/javascript" src="js/test1.js"></script>
+
+
+
+
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css">
+    <script src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+    <script>
+        /*function onDeviceReady() {
+
+         function onBackKeyDown() {
+         alert('Backbutton key pressed');
+         console.log('Backbutton key pressed');
+         }
+         // Register the event listener
+         document.addEventListener("backbutton",onBackKeyDown,true);
+         }
+         // Handle the back button
+         //*/
+
+/*
+        $(document).addEventListener('keydown', function(event) {
+            if (event.keyCode == 27) {
+                // Prevent default (disable the back button behavior)
+                event.preventDefault();
+                alert("back button");
+                // Your code to show another page or whatever...
+            }
+        });*/
+
+
+
+
+        function onLoad() {
+            document.addEventListener("deviceready", onDeviceReady, false);
+        }
+
+        // device APIs are available
+        //
+        function onDeviceReady() {
+            // Register the event listener
+            document.addEventListener("backbutton", onBackKeyDown, false);
+        }
+
+        // Handle the back button
+        //
+        function onBackKeyDown() {
+            alert("sales back")
+        }
+
+
+
+
+
+
+
+
+
+
+    </script>
+
+    <script>
+        function fgh(){
+        var t=null;
+        var xmlhttp=new XMLHttpRequest();
+        xmlhttp.onreadystatechange=function(responseText)
+        {
+            if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+                var obj = JSON.parse(xmlhttp.responseText);
+            var str=JSON.stringify(obj);
+            var newArr = JSON.parse(str);
+            var len=newArr.length;
+            while (len > 0) {
+                $('#list').append('<li onclick="test11()">'+'<a'+' '+'href="#" id='+newArr[len-1].ProspectID+' class="ui-btn ui-btn-icon-right ui-icon-carat-r">'+newArr[len-1].Name+'<br>'+'<p'+' '+'class="aaaa">'+newArr[len-1].TechStack+'</p>'+'</a>'+'</li>');
+                len--;
+            }
+        }
+        xmlhttp.onerror=function(E)
+        {
+           alert("error"+ E);
+        }
+        xmlhttp.open("GET","https://172.24.212.39:8080/prospect/view/",true);
+        xmlhttp.send();
+        }
+    </script>
+<!--
+
+
+           <script>                                                               <script type="text/javascript" src="cordova.js"></script>
+
+
+
+
+
+           </script>
+-->
+
+
+
+    <title>Sales Home</title>
+</head>
+<body onload="fgh();">
+
+    <div class="wrappersaleshome" data-role="page" id="temp">
+       <div></div>
+       <div class="top">
+               Prospect
+           <a href="add_prospects.html"  id="top1" class="ui-btn ui-icon-plus ui-btn-icon-notext ui-corner-all" data-role="button" data-icon="plus">No text</a>
+       </div>
+       <div id="field">
+        <fieldset class="ui-grid-b">
+            <div class="ui-block-b"><button type="submit" onclick="xyz()" data-theme="c">ALL</button></div>
+            <div class="ui-block-b"><button type="submit" onclick="pinning()" data-theme="c">PINNED</button></div>
+            <div class="ui-block-b"><button type="submit" onclick="unpinning()" data-theme="c">UNPINNED</button></div>
+        </fieldset>
+        </div>
+        <div class="llist">
+            <ul data-role="listview" data-filter="true" data-filter-placeholder="search" data-filter-theme="a" data-inset="false" class="ui-listview ui-listview-inset ui-corner-all ui-shadow" id="list">
+            </ul>
+        </div>
+    </div>
+</body>
+</html>

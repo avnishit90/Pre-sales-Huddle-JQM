@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<head>
+    <title>email</title>
+    <script src="jquery-1.10.1.min.js"></script>
+    <script src="jquery.mobile-1.4.2.min.js"></script>
+    <script src="cordova.js"></script>
+    <script>
+
+        function abcd() {
+            var readyForEmailTest = false
+            document.addEventListener('deviceready', function () {
+                alert(cordova.plugins.email);
+                alert(window.plugin.email);
+                readyForEmailTest = true;
+                if (readyForEmailTest == true) {
+                    if (window.plugin.email.isServiceAvailable() == true) {
+                        alert("gud");
+                        window.plugin.email.open();
+                    }
+                    else {
+                        alert("not gud");
+                        window.plugin.email.isServiceAvailable(
+                                function (isAvailable) {
+                                    alert(isAvailable ? 'Service is available' : 'Service NOT available');
+                                    alert(isAvailable);
+                                    //  cordova.plugins.email.addAlias('gmail', 'com.google.android.gm');
+                                    cordova.plugins.email.open({
+                                        //  app: 'gmail',
+                                        subject: 'Sent from Gmail'
+                                    })
+
+                                }
+                        );
+                    }
+                }
+            }, false);
+
+        }
+    </script>
+</head>
+<body >
+<input type="button"   value="button" onclick="abcd();">
+
+
+<!--<a href="mailto:avnish.kumar@synerzip.com?cc=savnish.kumar@synerzip.com&bcc=avnish.kumar@synerzip.com&subject=Big%20News&body=Body-goes-here">Email Us</a>-->
+</body>
+</html>

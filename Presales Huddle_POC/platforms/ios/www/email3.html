@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html">
+<head>
+    <link rel="stylesheet" type="text/css" href="css/add_prospects.css">
+    <script type="text/javascript" src="js/add_prospects.js"></script>
+    <script type="text/javascript" src="js/tech_home.js"></script>
+    <script type="text/javascript" src="js/emailtest1.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.css" />
+    <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.2/jquery.mobile-1.4.2.min.js"></script>
+    <script src="cordova.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/external/datepickr.min.css">
+    <style>
+        body {
+            font-family: Verdana;
+        }
+
+        h1 {
+            font-size: 25px;
+        }
+
+        input {
+            border: 1px solid #aaa;
+            padding: 5px;
+            width: 100%;
+        }
+    </style>
+
+<!--
+    <script>
+
+
+            var readyForEmailTest = false
+            document.addEventListener('deviceready', function () {
+                alert(cordova.plugins.email);
+                alert(window.plugin.email);
+                readyForEmailTest = true;
+                if (readyForEmailTest == true) {
+                            mail();
+                }
+            }, false);
+
+
+
+
+
+    </script>-->
+
+    <script>
+
+        function amail() {
+            var readyForEmailTest = false
+            document.addEventListener('deviceready', function () {
+                alert(cordova.plugins.email);
+                alert(window.plugin.email);
+                readyForEmailTest = true;
+                if (readyForEmailTest == true) {
+                    if (window.plugin.email.isServiceAvailable() == true) {
+                        alert("gud");
+                        window.plugin.email.open();
+                    }
+                    else {
+                        alert("not gud");
+                        window.plugin.email.isServiceAvailable(
+                                function (isAvailable) {
+                                    alert(isAvailable ? 'Service is available' : 'Service NOT available');
+                                    alert(isAvailable);
+                                    cordova.plugins.email.addAlias('gmail', 'com.google.android.gm');
+                                    cordova.plugins.email.open({
+                                        app: 'gmail',
+                                        subject: 'Sent from Gmail'
+                                    })
+
+                                }
+                        );
+                    }
+                }
+            }, false);
+
+        }
+
+
+
+    </script>
+
+
+    <title>Add Prospects</title>
+</head>
+<body >
+<div class="wrapperhome" data-role="page" >
+    <div></div>
+    <div class="top">
+        Prospect
+        <a href="emailtest2.html" onclick="" style="float:right; margin-top: .5%;">Check</a>
+    </div>
+    <
+</div>
+</body>
+</html>
